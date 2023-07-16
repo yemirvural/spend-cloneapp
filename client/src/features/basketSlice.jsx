@@ -2,11 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getProducts = createAsyncThunk('basket/getProducts', async() => {
-    const res = await axios(`http://localhost:5000/products`);
+    const res = await axios(`${import.meta.env.VITE_APP_API_BASE_ENDPOINT}/products`);
     return res.data;
 })
 export const setProductCount = createAsyncThunk('basket/setProductCount', async({id, data}) => {
-    const res = await axios.patch(`http://localhost:5000/products/${id}`, {data});
+    const res = await axios.patch(`${import.meta.env.VITE_APP_API_BASE_ENDPOINT}/products/${id}`, {data});
     return res.data;
 })
 
